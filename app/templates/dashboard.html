@@ -26,7 +26,7 @@
 <div class="container">
 		<div class="row" id="bklist_controller">
 			<div class="col s2">
-				<button class="waves-effect waves-light btn">Add Activity</button>
+				<button class="waves-effect waves-light btn" data-target="activityModal">Add Activity</button>
 			</div>	
 			
 			<div class="col s4">
@@ -138,75 +138,35 @@
 	</div>
 </div>
 
-<div id="addActivityModal" class="modal card">
-	<h4 class="modal-header center">
-		Please Login
-	</h4>
 
-	<div class="modal-content">
-	<div class="row">
-		<form class="col s12">
-			<div class="input-field">
-				<input type="text" name="email" id="email" class="validate">
-				<label for="email">Email</label>				
-			</div>
-
-			 <div class="input-field">
-				<input type="password" name="password" id="password" class="validate">
-				<label for="password">Password</label>
-			</div>
-			<div class="input-field">
-				<button class="btn">Log In</button>
-			</div>
-		</form>
-	</div>
-	</div>
-</div>
-
-	<form class="modal" id="registerModal">
+	<form class="modal" id="activityModal">
 		<h4 class="modal-header center">
-			Register
+			Add Activity
 		</h4>
 
 		<div class="modal-content">
 			<div class="input-field">
-				<input type="text" name="email" id="email" class="validate">
-				<label for="email">Email</label>				
+				<input type="text" name="name" id="name" class="validate">
+				<label for="email">Name of activity</label>				
 			</div>
 
 			<div class="input-field">
-				<input type="text" name="first_name" id="first_name" class="validate">
-				<label for="first_name">First Name</label>
+				<textarea name="story"></textarea>
+				<label for="story">Story</label>
 			</div>
 
-			<div class="input-field">
-				<input type="text" name="last_name" id="last_name" class="validate">
-				<label for="last_name">Last Name</label>
+			<div class="file-field input-field">
+					<div class="btn">
+						  <span>Image</span>
+						  <input type="file">
+					</div>
+					<div class="file-path-wrapper">
+					<input class="file-path validate" type="text">
+				</div>
 			</div>
-
-			<div class="input-field">
-				<span>
-					<input type="radio" name="gender" id="male">
-					<label for="male">Male</label>	
-				</span>
-
-				<span>
-					<input type="radio" name="gender" id="female">
-					<label for="female">Female</label>
-				</span>			
-			</div>
-
-		 <div class="input-field">
-			<input type="password" name="password" id="password" class="validate">
-			<label for="password">Password</label>
-		</div>
 
 		<div class="input-field">
-			<input type="password" name="password_repeat" id="password_repeat" class="validate">
-			<label for="password_repeat">Repeat Password</label>
-		</div>
-		<div class="input-field">
-			<button class="btn">Register</button>
+			<button class="btn">Add</button>
 		</div>
 	</form>
 	</div>
@@ -216,8 +176,9 @@
 <script type="text/javascript" src="static/style/materialize/js/materialize.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		//$(".modal").modal({
-		//	StartingTop:'10%'
+		$(".modal").modal({
+			StartingTop:'10%'
+		});
 
 
 		/*$(".pickdate").pickadate({
