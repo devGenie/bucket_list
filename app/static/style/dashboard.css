@@ -41,3 +41,15 @@
 #bklist_controller{
 	margin-top: 10px !important;
 }
+
+.bk_card .card-image{
+	height: 154px !important;
+}
+
+.bk_card .card-image img{
+	height: 100% !important;
+}
+
+.bk_card .card-title{
+	padding-left: 5px;
+}
