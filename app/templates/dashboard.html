@@ -32,7 +32,7 @@
 			<div class="col s4">
 				<button class=" waves-effect waves-light btn col s2">All</button>
 				<button class="btn waves-effect waves-light col s5">Pending</button>
-				<button class="btn waves-effect waves-light col s5">Completed</button>
+				<button class="btn waves-effect waves-light col s5">Archieved</button>
 			</div>			
 
 			<div class="search-wrapper card col s6 right" id="searchBar">
@@ -45,41 +45,27 @@
 
 		<div class="card">
 		<div class="row" id="demoArea">
-				<img src="images/skydiving.jpg" class="col s9" id="demoImg"/>
+				<img src="static/images/1.jpg" class="col s9" id="demoImg"/>
 				<div class="col s3">
-					<div>
+					<div id="dates_area" class="col s12">
 						<div>
 							Entered On:
 						</div>
 						<div>
-							
+							Archieved On:
 						</div>
 					</div>
-					<div>
-						<div>
-							Completed On:
-						</div>
-						<div>
-							
-						</div>
+
+					<div class="col s12" id="displayArea">
+						<p id="story">
+
+						</p>
 					</div>
-					<div>
-						<div id="displayArea">
 
-						</div>
-						<div class="col s12">
-						<div class="col s4">
-							<button class="btn col s12">Edit</button>
-						</div>
-
-						<div class="col s4">
-							<button class="btn col s12">Done</button>
-						</div>
-
-						<div class="col s4">
-							<button class="btn col s12">Delete</button>
-						</div>
-						</div>
+					<div class="col s12" id="actions">
+						<button class="btn col s4">Edit</button>
+						<button class="btn col s4">Done</button>
+						<button class="btn col s4">Delete</button>
 					</div>
 				</div>
 		</div>
