@@ -1,9 +1,35 @@
 #demoImg{
-	height: 520px !important;
+	height: 500px !important;
+}
+
+#demoArea{
+	padding: 10px;
 }
 
 #search{
 	height: 40px !important;
 	border-bottom: transparent !important;
 	margin: 0px !important;
+}
+
+#dates_area{
+	border:1px solid black;
+	height: auto;
+	padding: 10px !important;
+	border-radius:3px !important;
+}
+
+#displayArea{
+	height: 370px !important;
+	width: 100%;
+	border-radius:3px !important;
+	margin:0px;
+	margin-top:10px;
+	padding: 10px !important;
+	border:1px solid black;
+}
+
+#actions{
+	padding: 0px !important;
+	margin-top: 15px;
 }
