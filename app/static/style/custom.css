@@ -4,6 +4,10 @@
 	position: relative;
 }
 
+.btn{
+	border-radius: 0px !important;
+}
+
 .materialize_jumbo img{
 	width:100%;
 	height:100%;
