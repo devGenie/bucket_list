@@ -6,8 +6,12 @@
 	padding: 10px;
 }
 
+#searchBar{
+	margin: 0px !important;
+}
+
 #search{
-	height: 40px !important;
+	height: 35px !important;
 	border-bottom: transparent !important;
 	margin: 0px !important;
 }
@@ -32,4 +36,8 @@
 #actions{
 	padding: 0px !important;
 	margin-top: 15px;
+}
+
+#bklist_controller{
+	margin-top: 10px !important;
 }
