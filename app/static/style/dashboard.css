@@ -53,3 +53,7 @@
 .bk_card .card-title{
 	padding-left: 5px;
 }
+
+#activityModal{
+	width: 500px !important;
+}

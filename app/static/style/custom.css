@@ -117,7 +117,7 @@
 	color: #faffbd;
 }
 
-#forms form input{
+#forms form input,#activityModal form input{
 	z-index: 300px !important;
 	height: 35px !important;
 	padding-left: 10px !important;
