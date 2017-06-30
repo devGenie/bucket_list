@@ -1,0 +1,16 @@
+.materialize_jumbo{
+	width: 100%;
+	height:450px;
+	position: relative;
+}
+
+.materialize_jumbo img{
+	width:100%;
+	height:100%;
+}
+
+.materialize_jumbo .btns{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
