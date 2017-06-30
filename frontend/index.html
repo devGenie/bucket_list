@@ -25,13 +25,13 @@
 	<div class="row materialize_jumbo">
 		<img src="images/skydiving.jpg">
 		<div class="btns center-align">
-			<div class="btn">
-			LOGIN
-		</div>
+			<button class="btn" data-target="loginModal">
+				LOGIN
+			</button>
 
-		<div class="btn">
-			REGISTER
-		</div>
+			<button class="btn" data-target="registerModal">
+				REGISTER
+			</button>
 		</div>
 	</div>
 
@@ -163,6 +163,81 @@
 	</div>
 </div>
 
+<div id="registerModal" class="modal">
+	<h4 class="modal-header">
+		Register
+	</h4>
+
+	<div class="modal-content">
+	<div class="row">
+		<form class="col s12">
+			<div class="input-field">
+				<input type="text" name="email" id="email" class="validate">
+				<label for="email">Email</label>				
+			</div>
+
+			<div class="input-field">
+				<input type="text" name="first_name" id="first_name" class="validate">
+				<label for="first_name">First Name</label>
+			</div>
+
+			<div class="input-field">
+				<input type="text" name="last_name" id="last_name" class="validate">
+				<label for="last_name">Last Name</label>
+			</div>
+
+			<div class="input-field">
+				<span>
+					<input type="radio" name="gender" id="male">
+					<label for="male">Male</label>	
+				</span>
+
+				<span>
+					<input type="radio" name="gender" id="female">
+					<label for="female">Female</label>
+				</span>			
+			</div>
+			<input type="date" name="date_of_birth" id="date_of_birth" class="pickdate">
+			<label for="date_of_birth">Date of birth</label>
+
+			<div class="file-field input-field">
+			      <div class="btn">
+			        <span>Profile Pic</span>
+			        <input type="file">
+			      </div>
+			      <div class="file-path-wrapper">
+			        <input class="file-path validate" type="text">
+			      </div>
+			    </div>
+			 <div class="input-field">
+				<input type="password" name="password" id="password" class="validate">
+				<label for="password">Password</label>
+			</div>
+
+			<div class="input-field">
+				<input type="password" name="password_repeat" id="password_repeat" class="validate">
+				<label for="password_repeat">Repeat Password</label>
+			</div>
+			<div class="input-field">
+				<button class="btn">Register</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>
+
 </body>
 <script type="text/javascript" src="style/materialize/js/materialize.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".modal").modal({
+			StartingTop:'10%'
+		});
+
+		$(".pickdate").pickadate({
+			selectMonths:true,
+			selectYears:100
+		});
+	});
+</script>
 </html>
