@@ -1,2 +1,2 @@
-##Bucket List Fairy##
-A bucket list is a list of stuff you ought to do before you die. It comes from the term kick the bucket which literally means to die. This application is to help you keep track of things you want to do before you go ghost.
+##Bucket List Fairy
+A bucket list is a list of stuff you ought to do sometime in the future. Its like a wish list of things you promise to do in a lifetime . Bucket List Fairy is here to help you log what you ought to do so that you don't forget.
