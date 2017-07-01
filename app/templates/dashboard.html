@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style/materialize/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="style/custom.css">
+	<script type="text/javascript" src="javascript/jquery/jquery-3.2.1.js"></script>
+	
+	<title>BucketlistFairy</title>
+</head>
+<body>
+<div class="navbar-fixed">
+<nav>
+	<div class="nav-wrapper">
+		<div class="container">
+		<a href="#" class="brand-logo">BucketlistFairy</a>
+		<ul id="topNave" class="right hide-on-med-and-down">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul>
+		</div>
+	</div>
+</nav>
+</div>
+<div class="container">
+	<div class="card">
+		<div class="row">
+			<div class="col s2">
+				<button class="waves-effect waves-light btn">Add Activity</button></div>	
+			<div class="col s6">
+				<ul class="tabs">
+					<li class="tab col s3">
+						<button class=" waves-effect waves-light btn">All</button>
+					</li>
+					<li class="tab col s3">
+						<button class="btn waves-effect waves-light">Pending</button>
+					</li>
+					<li class="tab col s3">
+						<button class="btn">Completed</button>
+					</li>
+				</ul>
+			</div>
+			<form class="col s4" id="search_form">
+				<div class="input-field">
+					<input type="search" class="col s6" name="searchTerm">
+					<button class="col s4 btn">Search</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="row" id="demoArea">
+				<img src="images/skydiving.jpg" class="col s9" id="demoImg"/>
+				<div class="col s3">
+					<div>
+						<div>
+							Date Stated
+						</div>
+						<div>
+							
+						</div>
+					</div>
+					<div>
+						<div>
+							Date Completed
+						</div>
+						<div>
+							
+						</div>
+					</div>
+					<div>
+						<div id="displayArea">
+
+						</div>
+						<div class="col s12">
+						<div class="col s4">
+							<button class="btn col s12">Edit</button>
+						</div>
+
+						<div class="col s4">
+							<button class="btn col s12">Done</button>
+						</div>
+
+						<div class="col s4">
+							<button class="btn col s12">Delete</button>
+						</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s6"><h5>My Bucket List</h5></div>
+	</div>
+
+	<div class="row">
+		<div class="col s3">
+			<div class="card">
+			<div class="card-image">
+				<img src="images/skydiving.jpg"/>
+			</div>
+			<span class="card-title">
+				Go Sky diving
+			</span>
+
+			<div class="card-content">
+				
+			</div>
+		</div>
+		</div>
+
+		<div class="col s3">
+			<div class="card">
+			<div class="card-image">
+				<img src="images/skydiving.jpg"/>
+			</div>
+			<span class="card-title">
+				Go Scuba diving
+			</span>
+
+			<div class="card-content">
+				
+			</div>
+		</div>
+		</div>
+
+		<div class="col s3">
+			<div class="card">
+			<div class="card-image">
+				<img src="images/skydiving.jpg"/>
+			</div>
+			<span class="card-title">
+				Bingo
+			</span>
+
+			<div class="card-content">
+				
+			</div>
+		</div>
+		</div>
+
+		<div class="col s3">
+			<div class="card">
+			<div class="card-image">
+				<img src="images/skydiving.jpg"/>
+			</div>
+			<span class="card-title">
+				Sky diving
+			</span>
+
+			<div class="card-content">
+				
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div id="addActivityModal" class="modal card">
+	<h4 class="modal-header center">
+		Please Login
+	</h4>
+
+	<div class="modal-content">
+	<div class="row">
+		<form class="col s12">
+			<div class="input-field">
+				<input type="text" name="email" id="email" class="validate">
+				<label for="email">Email</label>				
+			</div>
+
+			 <div class="input-field">
+				<input type="password" name="password" id="password" class="validate">
+				<label for="password">Password</label>
+			</div>
+			<div class="input-field">
+				<button class="btn">Log In</button>
+			</div>
+		</form>
+	</div>
+	</div>
+</div>
+
+	<form class="modal" id="registerModal">
+		<h4 class="modal-header center">
+			Register
+		</h4>
+
+		<div class="modal-content">
+			<div class="input-field">
+				<input type="text" name="email" id="email" class="validate">
+				<label for="email">Email</label>				
+			</div>
+
+			<div class="input-field">
+				<input type="text" name="first_name" id="first_name" class="validate">
+				<label for="first_name">First Name</label>
+			</div>
+
+			<div class="input-field">
+				<input type="text" name="last_name" id="last_name" class="validate">
+				<label for="last_name">Last Name</label>
+			</div>
+
+			<div class="input-field">
+				<span>
+					<input type="radio" name="gender" id="male">
+					<label for="male">Male</label>	
+				</span>
+
+				<span>
+					<input type="radio" name="gender" id="female">
+					<label for="female">Female</label>
+				</span>			
+			</div>
+
+		 <div class="input-field">
+			<input type="password" name="password" id="password" class="validate">
+			<label for="password">Password</label>
+		</div>
+
+		<div class="input-field">
+			<input type="password" name="password_repeat" id="password_repeat" class="validate">
+			<label for="password_repeat">Repeat Password</label>
+		</div>
+		<div class="input-field">
+			<button class="btn">Register</button>
+		</div>
+	</form>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript" src="style/materialize/js/materialize.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$(".modal").modal({
+		//	StartingTop:'10%'
+		});
+
+		/*$(".pickdate").pickadate({
+			selectMonths:true,
+			selectYears:100
+		});*/
+	});
+</script>
+</html>
