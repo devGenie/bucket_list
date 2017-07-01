@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col s6"><h5>Recent Activity</h5></div>
+		<div class="col s6"><h5>Samples</h5></div>
 	</div>
 
 	<div class="row">
@@ -46,7 +46,7 @@
 				<img src="images/skydiving.jpg"/>
 			</div>
 			<span class="card-title">
-				Sky diving
+				Go Sky diving
 			</span>
 
 			<div class="card-content">
@@ -61,7 +61,7 @@
 				<img src="images/skydiving.jpg"/>
 			</div>
 			<span class="card-title">
-				Sky diving
+				Go Scuba diving
 			</span>
 
 			<div class="card-content">
@@ -76,74 +76,13 @@
 				<img src="images/skydiving.jpg"/>
 			</div>
 			<span class="card-title">
-				Sky diving
+				Bingo
 			</span>
 
 			<div class="card-content">
 				
 			</div>
 		</div>
-		</div>
-
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Sky diving
-			</span>
-
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
-
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Sky diving
-			</span>
-
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
-
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Sky diving
-			</span>
-
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
-
-		<div class="col s3">
-			<div class="card">
-				<div class="card-image">
-					<img src="images/skydiving.jpg"/>
-				</div>
-				
-				<span class="card-title">
-					Sky diving
-				</span>
-
-				<div class="card-content">
-				
-				</div>
-			</div>
 		</div>
 
 		<div class="col s3">
@@ -163,9 +102,9 @@
 	</div>
 </div>
 
-<div id="loginModal" class="modal">
-	<h4 class="modal-header">
-		Login
+<div id="loginModal" class="modal card">
+	<h4 class="modal-header center">
+		Please Login
 	</h4>
 
 	<div class="modal-content">
@@ -188,14 +127,12 @@
 	</div>
 </div>
 
-<div id="registerModal" class="modal">
-	<h4 class="modal-header">
-		Register
-	</h4>
+	<form class="modal" id="registerModal">
+		<h4 class="modal-header center">
+			Register
+		</h4>
 
-	<div class="modal-content">
-	<div class="row">
-		<form class="col s12">
+		<div class="modal-content">
 			<div class="input-field">
 				<input type="text" name="email" id="email" class="validate">
 				<label for="email">Email</label>				
@@ -222,32 +159,20 @@
 					<label for="female">Female</label>
 				</span>			
 			</div>
-			<input type="date" name="date_of_birth" id="date_of_birth" class="pickdate">
-			<label for="date_of_birth">Date of birth</label>
 
-			<div class="file-field input-field">
-			      <div class="btn">
-			        <span>Profile Pic</span>
-			        <input type="file">
-			      </div>
-			      <div class="file-path-wrapper">
-			        <input class="file-path validate" type="text">
-			      </div>
-			    </div>
-			 <div class="input-field">
-				<input type="password" name="password" id="password" class="validate">
-				<label for="password">Password</label>
-			</div>
+		 <div class="input-field">
+			<input type="password" name="password" id="password" class="validate">
+			<label for="password">Password</label>
+		</div>
 
-			<div class="input-field">
-				<input type="password" name="password_repeat" id="password_repeat" class="validate">
-				<label for="password_repeat">Repeat Password</label>
-			</div>
-			<div class="input-field">
-				<button class="btn">Register</button>
-			</div>
-		</form>
-	</div>
+		<div class="input-field">
+			<input type="password" name="password_repeat" id="password_repeat" class="validate">
+			<label for="password_repeat">Repeat Password</label>
+		</div>
+		<div class="input-field">
+			<button class="btn">Register</button>
+		</div>
+	</form>
 	</div>
 </div>
 
@@ -259,10 +184,10 @@
 			StartingTop:'10%'
 		});
 
-		$(".pickdate").pickadate({
+		/*$(".pickdate").pickadate({
 			selectMonths:true,
 			selectYears:100
-		});
+		});*/
 	});
 </script>
 </html>
