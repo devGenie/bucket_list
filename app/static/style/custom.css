@@ -157,3 +157,7 @@ nav{
 #registerForm_area{
 	transform: rotateY(180deg);
 }
+
+.flip{
+	transform: rotateY(180deg);
+}
