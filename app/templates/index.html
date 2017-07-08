@@ -9,8 +9,8 @@
 </head>
 <body>
 <div>
-	<ul class="genie-carousel" id="mainCarousel">
-		<div class="navbar-fixed" id="mainNav">
+	<div class="carousel carousel-slider center genie-carousel">
+	    <div class="navbar-fixed" id="mainNav">
 			<nav>
 				<div class="nav-wrapper">
 					<div class="container">
@@ -24,22 +24,20 @@
 			</nav>
 		</div>
 
-		<li class="genie-carousel-item">
-			<img src="static/images/skydiving.jpg"/>
-		</li>
+	    <div class="carousel-item genie-carousel-item" href="#one!">
+	      <img src="static/images/skydiving.jpg"/>
+	    </div>
 
-		<li class="genie-carousel-item">
-			<img src="static/images/skydiving.jpg"/>
-		</li>
-
-		<li class="genie-carousel-item">
-			<img src="static/images/skydiving.jpg"/>
-		</li>
-
-		<li class="genie-carousel-item">
-			<img src="static/images/skydiving.jpg"/>
-		</li>
-	</ul>
+	    <div class="carousel-item genie-carousel-item" href="#two!">
+	      <img src="static/images/skydiving.jpg"/>
+	    </div>
+	    <div class="carousel-item genie-carousel-item" href="#three!">
+	      <img src="static/images/skydiving.jpg"/>
+	    </div>
+	    <div class="carousel-item genie-carousel-item" href="#four!">
+	      <img src="static/images/skydiving.jpg"/>
+	    </div>
+  </div>
 </div>
 
 
@@ -51,10 +49,9 @@
 			StartingTop:'10%'
 		});
 
-		$(".carousel").carousel({
-			fullwidth:true
-		})
-
+		 $('.carousel.carousel-slider').carousel({fullWidth: true});
+		 setInterval(function(){
+		 	$('.carousel.carousel-slider').carousel('next');},20000)
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
 			selectYears:100
