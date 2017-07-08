@@ -45,9 +45,10 @@
 
 #mainCarousel{
 	width: 100% !important;
-	height: 100% !important;
+	height: 100vh !important;
 	position: relative;
 	margin: 0px !important;
+	overflow: hidden !important;
 }
 
 #mainNav{
@@ -55,7 +56,22 @@
 	top:0px !important;
 }
 
+.genie-carousel{
+	width: 100% !important;
+	height: 100vh !important;
+}
 
+.genie-carousel-item{
+	width: 100% !important;
+	height: 100% !important;
+	display: inline !important;
+	float: left;
+}
+
+.genie-carousel-item img{
+	width: 100% !important;
+	height: 100% !important;
+}
 
 nav{
 	background-color: transparent;
