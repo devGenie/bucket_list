@@ -148,3 +148,14 @@ nav{
 	top: 0px !important;
 	left: 0px !important;
 }
+
+/*place front pane above back*/
+#loginForm_area{
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/*initially hide back pane*/
+#registerForm_area{
+	transform: rotateY(180deg);
+}
