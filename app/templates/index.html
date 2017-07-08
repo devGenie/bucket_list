@@ -8,173 +8,40 @@
 	<title>BucketlistFairy</title>
 </head>
 <body>
-<div class="navbar-fixed">
-<nav>
-	<div class="nav-wrapper">
-		<div class="container">
-		<a href="#" class="brand-logo">BucketlistFairy</a>
-		<ul id="topNave" class="right hide-on-med-and-down">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-		</ul>
-		</div>
-	</div>
-</nav>
-</div>
-<div class="container">
-	<div class="row materialize_jumbo">
-		<img src="static/images/skydiving.jpg">
-		<div class="btns center-align">
-			<button class="btn" data-target="loginModal">
-				LOGIN
-			</button>
-
-			<button class="btn" data-target="registerModal">
-				REGISTER
-			</button>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col s6"><h5>Samples</h5></div>
-	</div>
-
-	<div class="row">
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="static/images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Go Sky diving
-			</span>
-
-			<div class="card-content">
-				
-			</div>
-		</div>
+<div>
+	<ul class="carousel" id="mainCarousel">
+		<div class="navbar-fixed" id="mainNav">
+			<nav>
+				<div class="nav-wrapper">
+					<div class="container">
+					<a href="#" class="brand-logo">BucketlistFairy</a>
+					<ul id="topNave" class="right hide-on-med-and-down">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+					</ul>
+					</div>
+				</div>
+			</nav>
 		</div>
 
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="static/images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Go Scuba diving
-			</span>
+		<li>
+			<img src="static/images/skydiving.jpg"/>
+		</li>
 
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
+		<li>
+			<img src="static/images/skydiving.jpg"/>
+		</li>
 
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="static/images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Bingo
-			</span>
+		<li>
+			<img src="static/images/skydiving.jpg"/>
+		</li>
 
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
-
-		<div class="col s3">
-			<div class="card">
-			<div class="card-image">
-				<img src="static/images/skydiving.jpg"/>
-			</div>
-			<span class="card-title">
-				Sky diving
-			</span>
-
-			<div class="card-content">
-				
-			</div>
-		</div>
-		</div>
-	</div>
+		<li>
+			<img src="static/images/skydiving.jpg"/>
+		</li>
+	</ul>
 </div>
 
-<div id="loginModal" class="modal card">
-	<h4 class="modal-header center">
-		Please Login
-	</h4>
-
-	<div class="modal-content">
-	<div class="row">
-		<form class="col s12">
-			<div class="input-field">
-				<input type="text" name="email" id="email" class="validate">
-				<label for="email">Email</label>				
-			</div>
-
-			 <div class="input-field">
-				<input type="password" name="password" id="password" class="validate">
-				<label for="password">Password</label>
-			</div>
-			<div class="input-field">
-				<button class="btn">Log In</button>
-			</div>
-		</form>
-	</div>
-	</div>
-</div>
-
-	<form class="modal" id="registerModal">
-		<h4 class="modal-header center">
-			Register
-		</h4>
-
-		<div class="modal-content">
-			<div class="input-field">
-				<input type="text" name="email" id="email" class="validate">
-				<label for="email">Email</label>				
-			</div>
-
-			<div class="input-field">
-				<input type="text" name="first_name" id="first_name" class="validate">
-				<label for="first_name">First Name</label>
-			</div>
-
-			<div class="input-field">
-				<input type="text" name="last_name" id="last_name" class="validate">
-				<label for="last_name">Last Name</label>
-			</div>
-
-			<div class="input-field">
-				<span>
-					<input type="radio" name="gender" id="male">
-					<label for="male">Male</label>	
-				</span>
-
-				<span>
-					<input type="radio" name="gender" id="female">
-					<label for="female">Female</label>
-				</span>			
-			</div>
-
-		 <div class="input-field">
-			<input type="password" name="password" id="password" class="validate">
-			<label for="password">Password</label>
-		</div>
-
-		<div class="input-field">
-			<input type="password" name="password_repeat" id="password_repeat" class="validate">
-			<label for="password_repeat">Repeat Password</label>
-		</div>
-		<div class="input-field">
-			<button class="btn">Register</button>
-		</div>
-	</form>
-	</div>
-</div>
 
 </body>
 <script type="text/javascript" src="static/style/materialize/js/materialize.js"></script>
@@ -183,6 +50,10 @@
 		$(".modal").modal({
 			StartingTop:'10%'
 		});
+
+		$(".carousel").carousel({
+			fullwidth:true
+		})
 
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
