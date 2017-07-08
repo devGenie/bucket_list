@@ -42,3 +42,15 @@
 	margin-right:10px!important;
 	margin-top:10px;
 }
+
+#mainCarousel{
+	width: 100% !important;
+	height: 100% !important;
+	position: relative;
+	margin: 0px !important;
+}
+
+#mainNav{
+	position:absolute !important;
+	top:0px !important;
+}
