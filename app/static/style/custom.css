@@ -150,7 +150,6 @@ nav{
 
 /*place front pane above back*/
 #loginForm_area{
-	z-index: 2;
 	transform: rotateY(0deg);
 }
 
