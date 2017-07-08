@@ -50,7 +50,7 @@
 						Don't have an account? 
 					</p>
 					<div class="col s12 center">
-						<button class="btn">
+						<button class="btn flip_me">
 							Register
 						</button>
 					</div>
@@ -95,7 +95,7 @@
 						Already have an account? 
 					</p>
 					<div class="col s12 center">
-						<button class="btn">
+						<button class="btn flip_me">
 							Login
 						</button>
 					</div>
@@ -133,7 +133,11 @@
 
 		 $('.carousel.carousel-slider').carousel({fullWidth: true});
 		 setInterval(function(){
-		 	$('.carousel.carousel-slider').carousel('next');},20000)
+		 	$('.carousel.carousel-slider').carousel('next');},20000);
+
+		 $(".flip_me").click(function(){
+		 	$(".flipper").css("transform","rotateY(180deg)");
+		 });
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
 			selectYears:100
