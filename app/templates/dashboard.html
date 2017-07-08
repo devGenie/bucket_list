@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="static/style/materialize/css/materialize.css">
 	<link rel="stylesheet" type="text/css" href="static/style/custom.css">
+	<link rel="stylesheet" type="text/css" href="static/style/dashboard.css">
 	<script type="text/javascript" src="static/javascript/jquery/jquery-3.2.1.js"></script>
 	
 	<title>BucketlistFairy</title>
@@ -23,24 +24,18 @@
 </nav>
 </div>
 <div class="container">
-	<div class="card">
 		<div class="row">
 			<div class="col s2">
-				<button class="waves-effect waves-light btn">Add Activity</button></div>	
-			<div class="col s6">
-				<ul class="tabs">
-					<li class="tab col s3">
-						<button class=" waves-effect waves-light btn">All</button>
-					</li>
-					<li class="tab col s3">
-						<button class="btn waves-effect waves-light">Pending</button>
-					</li>
-					<li class="tab col s3">
-						<button class="btn">Completed</button>
-					</li>
-				</ul>
-			</div>
-			<form class="col s4" id="search_form">
+				<button class="waves-effect waves-light btn">Add Activity</button>
+			</div>	
+			
+			<div class="col s4">
+				<button class=" waves-effect waves-light btn col s2">All</button>
+				<button class="btn waves-effect waves-light col s5">Pending</button>
+				<button class="btn waves-effect waves-light col s5">Completed</button>
+			</div>			
+
+			<form class="col s4 right" id="search_form">
 				<div class="input-field">
 					<input type="search" class="col s6" name="searchTerm">
 					<button class="col s4 btn">Search</button>
@@ -48,12 +43,13 @@
 			</form>
 		</div>
 
+		<div class="card">
 		<div class="row" id="demoArea">
 				<img src="images/skydiving.jpg" class="col s9" id="demoImg"/>
 				<div class="col s3">
 					<div>
 						<div>
-							Date Stated
+							Entered On:
 						</div>
 						<div>
 							
@@ -61,7 +57,7 @@
 					</div>
 					<div>
 						<div>
-							Date Completed
+							Completed On:
 						</div>
 						<div>
 							
@@ -236,7 +232,7 @@
 	$(document).ready(function(){
 		//$(".modal").modal({
 		//	StartingTop:'10%'
-		});
+
 
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
