@@ -97,7 +97,6 @@ nav{
 	margin-right: auto;
 	padding:20px !important;
 	border-radius: 3px;
-	position: relative;
 }
 
 .note{
@@ -142,9 +141,9 @@ nav{
 }
 
 /*add backs of panes*/
-#loginForm_area, #logoutForm_area{
+#loginForm_area, #registerForm_area{
 	backface-visibility: hidden;
-	position: absolute;
+	position: absolute !important;
 	top: 0px !important;
 	left: 0px !important;
 }
