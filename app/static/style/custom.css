@@ -134,8 +134,17 @@ nav{
 	height: auto;
 }
 
+/*flip speed */
 .flipper{
 	transition: 0.6s;
 	position: relative;
 	transform-style: preserve-3d;
+}
+
+/*add backs of panes*/
+#loginForm_area, #logoutForm_area{
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0px !important;
+	left: 0px !important;
 }
