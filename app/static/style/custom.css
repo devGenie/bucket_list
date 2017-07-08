@@ -97,7 +97,6 @@ nav{
 	margin-right: auto;
 	padding:20px !important;
 	border-radius: 3px;
-	position: relative;
 }
 
 .note{
@@ -134,8 +133,31 @@ nav{
 	height: auto;
 }
 
+/*flip speed */
 .flipper{
 	transition: 0.6s;
 	position: relative;
 	transform-style: preserve-3d;
+}
+
+/*add backs of panes*/
+#loginForm_area, #registerForm_area{
+	backface-visibility: hidden;
+	position: absolute !important;
+	top: 0px !important;
+	left: 0px !important;
+}
+
+/*place front pane above back*/
+#loginForm_area{
+	transform: rotateY(0deg);
+}
+
+/*initially hide back pane*/
+#registerForm_area{
+	transform: rotateY(180deg);
+}
+
+.flip{
+	transform: rotateY(180deg);
 }
