@@ -22,7 +22,7 @@ class User(object):
 		"""This method returns a dictionary of bucket list elements"""
 		pass
 
-	def edit_bucketlist(self,name,title,due_age):
+	def edit_bucketlist(self,bucket,name,due_age):
 		"""This method edits the bucketlist specified"""
 		pass
 
