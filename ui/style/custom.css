@@ -52,7 +52,12 @@
 	top:0px !important;
 }
 
-.genie-carousel{
+.bg_image{
+	width: 100% !important;
+	height: 100vh !important;
+}
+
+.bg_image img{
 	width: 100% !important;
 	height: 100vh !important;
 }
