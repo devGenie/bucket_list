@@ -36,16 +36,16 @@ $ pip install virtualenv```
 
 install the requirements
 
-```pip install requirements.txt```
+```$ pip install requirements.txt```
 
 OR
 
-```pip install --upgrade -r requirements.txt```
+```$ pip install --upgrade -r requirements.txt```
 
 Provide the flask application environment variable
 
-```export FLASK_APP=run.py```
+```$ export FLASK_APP=run.py```
 
 run the flask server
 
-```flask run```
+```$ flask run```
