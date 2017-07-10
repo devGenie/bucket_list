@@ -1,7 +1,7 @@
 ## Bucket List ##
 A bucket list is a list of stuff you ought to do sometime in the future mostly before you clock a certain age or even kick the bucket
 
-**Instalation**
+**Installation**
 
 ```
 $ git clone https://github.com/devGenie/bucket_list.git
