@@ -11,6 +11,9 @@ class TestUser(unittest.TestCase):
 		"""Testing if a user is assigned a name"""
 		self.assertEqual(self.test_user.name,"Onen Julius","User name not initialized")
 
+	def test_user_assigned_email(self):
+		self.assertEqual(self.test_user.email,"jonen54@gmail.com","User not assigned email")
+
 	def test_user_is_object(self):
 		self.assertIsInstance(self.test_user,user.User,"test user is not an instance of class User")
 
