@@ -36,6 +36,7 @@ class User(object):
 		pass
 
 	def delete_bucketlist(self,name):
-		pass
+		if name in bucketlists:
+			del bucketlists[name]
 
 

@@ -31,8 +31,10 @@ class TestUser(unittest.TestCase):
 		bucket_list_edit=self.test_user.view_bucketlist
 
 	def test_delete_bucket_list(self):
-		self.test_user.add_bucketlist("My bucketist",40)
-		bucket_lists1=self.test_user.view_bucketlist("My bucketist")
+		self.test_user.add_bucketlist("My bucketlist",40)
+		bucket_lists1=self.test_user.view_bucketlist("My bucketlist")
+		len1=len(bucket_lists1)
 		self.test_user.delete_bucketlist("My bucketlist")
 		bucket_lists2=self.test_user.view_bucketlist()
-		self.assertNotEqual(len(bucket_lists2),len(bucket_lists1),"Bucket list has not been deleted")
+		len2=len(bucket_lists2)
+		self.assertNotEqual(len2,len1,"Bucket list has not been deleted")
