@@ -2,12 +2,16 @@ class User(object):
 	"""
 		The user class implements the functionality of a user on the bucketlist application
 	"""
-	def __init__(self,first_name,last_name):
+	def __init__(self,first_name,last_name,email,password):
 		"""The constructor initialises class variables"""
-		pass
+		self.name=first_name+" "+last_name
 
 	def login(self,email,password):
 		"""The login method checks if the user email and password match the ones provided by the app"""
+		pass
+
+	def get_info(self):
+		"""This method rreturns a dictionary of user info"""
 		pass
 
 	def logout(self,email,password):
