@@ -11,6 +11,10 @@ class TestUser(unittest.TestCase):
 		"""Testing if a user is assigned a name"""
 		self.assertEqual(self.test_user.name,"Onen Julius","User name not initialized")
 
+	def test_user_password(self):
+		"""Testing if user has been assigned a password"""
+		self.assertEqual(self.test_user.password,"256mygame","User has not been assigned a password")
+
 	def test_user_assigned_email(self):
 		self.assertEqual(self.test_user.email,"jonen54@gmail.com","User not assigned email")
 
