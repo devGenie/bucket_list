@@ -4,12 +4,12 @@ from app.models import user
 
 class TestUser(unittest.TestCase):
 	def setUp(self):
-		self.test_user=user.User("Onen","Julius")
+		self.test_user=user.User("Onen","Julius","jonen54@gmail.com","256mygame")
 	def test_user_created(self):
 		self.assertEqual(self.test_user.name,"Onen Julius","User name not initialized")
 
 	def test_user_is_object(self):
-		self.assertIsInstance(self.test_user,User,"test user is not an instance of class User")
+		self.assertIsInstance(self.test_user,user.User,"test user is not an instance of class User")
 
 	def test_add_bucketlist(self):
 		bucket_lists=self.test_user.view_bucketlist()
@@ -31,6 +31,6 @@ class TestUser(unittest.TestCase):
 	def test_delete_bucket_list(self):
 		self.test_user.add_bucketlist("My bucketist",40)
 		bucket_lists1=self.test_user.view_bucketlist("My bucketist")
-		self.test_user.delete(bucket_list,"My bucketlist",40)
+		self.test_user.delete_bucketlist("My bucketlist")
 		bucket_lists2=self.test_user.view_bucketlist()
-		self.assertNotEqual(len(bucket_list),len(bucket_lists1),"Bucket list has not been deleted")
+		self.assertNotEqual(len(bucket_lists2),len(bucket_lists1),"Bucket list has not been deleted")
