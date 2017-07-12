@@ -6,6 +6,7 @@ class TestUser(unittest.TestCase):
 	"""Class to test for user class functionality"""
 	def setUp(self):
 		"""Setup a user instance to be used for testing throughout the app"""
+
 		self.test_user=user.User("Onen","Julius","jonen54@gmail.com","256mygame")
 	def test_user_assigned_name(self):
 		"""Testing if a user is assigned a name"""
@@ -25,7 +26,7 @@ class TestUser(unittest.TestCase):
 
 	def test_user_login(self):
 		"""Testing if the login function starts"""
-		logged_in=self.test_user.login("jonen54@gmail.com","256thmygame")
+		logged_in=self.test_user.login("jonen54@gmail.com","256mygame")
 		self.assertTrue(logged_in,"User not able to login")
 
 
