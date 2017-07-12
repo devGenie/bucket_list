@@ -41,9 +41,15 @@ def add_bucketlist():
 	bucketlist=current_user.view_bucketlist(name)
 	return jsonify({"status":"success","message":"Bucketlist added successfully","data":bucketlist})
 
-@app.route("/api/bucketlist/<int:bucketlist>/item/add",methods=['POST'])
+@app.route("/api/bucketlistitem/<string:bucketlist>/item/add",methods=['POST'])
 def add_item(bucketlist):
-	pass
+	global current_user
+	item=request.form['item']
+	item=current_user.add_bucketlist_item(bucketlist,item)
+	if item not false:
+		return jsonify({"status":item})
+	else:
+		return jsonify({"status":"failed","message":"Bucketlist item not added"})
 
 @app.route('/api/item<int:item_id>/edit',methods=['POST'])
 def edit_item(item_id):
