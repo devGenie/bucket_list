@@ -25,4 +25,11 @@ class BucketList(object):
 		pass
 
 	def view_item(self,name):
-		pass
+		if name in self.bucketlist_items:
+			item=self.bucketlist_items[name]
+			return item.show_info()
+
+	def get_item(self,name):
+		if name in self.bucketlist_items:
+			item=self.bucketlist_items[name]
+			return item
