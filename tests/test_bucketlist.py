@@ -18,14 +18,14 @@ class TestBucketList(unittest.TestCase):
 		increment=len(self.test_bucketList.view_bucketlists())
 		self.assertNotEqual(items_count,increment,"Item not added to bucketlist")
 
-	def test_bucketlist_edit_item(self):
+	def test_edit_item(self):
 		self.test_bucketList.add_item("Go Pro")
-		item=self.test_bucketList.view_item
+		item=self.test_bucketList.get_item("Go Pro")
+		edited=self.test_bucketList.edit_item(item,"Super")
+		self.assertDictEqual(edited,{"name":"Super","complete_status":False})
+
 
 	def test_bucketlist_complete_item(self):
-		pass
-
-	def test_bucketlist_edit_item(self):
 		pass
 
 	def test_bucketlist_delete_item(self):
