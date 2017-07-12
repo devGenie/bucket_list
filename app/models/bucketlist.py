@@ -16,7 +16,8 @@ class BucketList(object):
 		self.bucketlist_items[name]=list_item
 
 	def edit_item(self,item,name):
-		pass
+		item.name=name
+		return item.show_info()
 
 	def delete_item(self,name):
 		pass
