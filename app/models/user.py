@@ -35,7 +35,11 @@ class User(object):
 
 	def view_bucketlist(self,name=""):
 		"""This method returns a dictionary of bucket list elements"""
-		return self.bucketlists
+		if name and name in self.bucketlists:
+			bucketlist=self.bucketlists[name]
+			return {"name":bucketlist.name,"due_age":bucketlist.due_age}
+		elif not name:
+			return self.bucketlists
 
 	def edit_bucketlist(self,bucket,name,due_age):
 		"""This method edits the bucketlist specified"""
