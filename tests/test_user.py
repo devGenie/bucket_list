@@ -3,9 +3,12 @@ import context
 from app.models import user
 
 class TestUser(unittest.TestCase):
+	"""Class to test for user class functionality"""
 	def setUp(self):
+		"""Setup a user instance to be used for testing throughout the app"""
 		self.test_user=user.User("Onen","Julius","jonen54@gmail.com","256mygame")
-	def test_user_created(self):
+	def test_user_assigned_name(self):
+		"""Testing if a user is assigned a name"""
 		self.assertEqual(self.test_user.name,"Onen Julius","User name not initialized")
 
 	def test_user_is_object(self):
