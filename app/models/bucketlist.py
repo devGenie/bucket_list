@@ -5,7 +5,7 @@ class BucketList(object):
 	def get_info(self):
 		pass
 
-	def view_items(self):
+	def view_bucketlists(self):
 		pass
 
 	def add_item(self,name):
