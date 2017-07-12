@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/devGenie/bucket_list/badge.svg?branch=master)](https://coveralls.io/github/devGenie/bucket_list?branch=master)
+[![Build Status](https://travis-ci.org/devGenie/bucket_list.svg?branch=master)](https://travis-ci.org/devGenie/bucket_list)
 
 ## Bucket List ##
 A bucket list is a list of stuff you ought to do sometime in the future mostly before you clock a certain age or even kick the bucket
