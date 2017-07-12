@@ -1,15 +1,19 @@
+from .list_item import ListItem
 class BucketList(object):
 	def __init__(self,name,due_age):
-		pass
+		self.name=name
+		self.due_age=due_age
+		self.bucketlist_items={}
 
 	def get_info(self):
 		pass
 
 	def view_bucketlists(self):
-		pass
+		return self.bucketlist_items
 
 	def add_item(self,name):
-		pass
+		list_item=ListItem(name)
+		self.bucketlist_items[name]=list_item
 
 	def edit_item(self,item,name):
 		pass
@@ -18,4 +22,7 @@ class BucketList(object):
 		pass
 
 	def complete_item(self,name):
+		pass
+
+	def view_item(self,name):
 		pass
