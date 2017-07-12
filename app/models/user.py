@@ -26,4 +26,7 @@ class User(object):
 		"""This method edits the bucketlist specified"""
 		pass
 
+	def delete_bucketlist(self,name):
+		pass
+
 
