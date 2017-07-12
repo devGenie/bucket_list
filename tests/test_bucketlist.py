@@ -1,5 +1,6 @@
 import unittest
 from app.models.bucketlist import BucketList
+from app.models.list_item import ListItem
 
 class TestBucketList(unittest.TestCase):
 	def setUp(self):
@@ -18,7 +19,8 @@ class TestBucketList(unittest.TestCase):
 		self.assertNotEqual(items_count,increment,"Item not added to bucketlist")
 
 	def test_bucketlist_edit_item(self):
-		pass
+		self.test_bucketList.add_item("Go Pro")
+		item=self.test_bucketList.view_item
 
 	def test_bucketlist_complete_item(self):
 		pass
@@ -42,5 +44,13 @@ class TestBucketList(unittest.TestCase):
 		pass
 
 	def test_view_bucketlist_item(self):
-		pass
+		self.test_bucketList.add_item("Gaming")
+		item=self.test_bucketList.view_item("Gaming")
+		self.assertEqual(item,{"name":"Gaming","complete_status":False})
+
+	def test_get_bucketlist_item(self):
+		self.test_bucketList.add_item("Sporting")
+		item=self.test_bucketList.get_item("Sporting")
+		self.assertIsInstance(item,ListItem,"List Item not added")
+
 
