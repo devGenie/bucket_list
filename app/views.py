@@ -23,7 +23,14 @@ def register():
 
 @app.route("/api/login",methods=['POST'])
 def login():
-	
+	email=request.form['email']
+	password=request.form['password']
+	global current_user
+	temp=current_user.login(email,password)
+	if temp==True:
+		return jsonify({'status':"success","message":"User logged in successfully"})
+	else:
+		return jsonify({'status':"failed","message":"User login failed"})
 
 @app.route("/api/bucketlist",methods=['POST'])
 def add_bucketlist():
