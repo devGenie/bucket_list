@@ -15,7 +15,7 @@ class TestBucketList(unittest.TestCase):
 		items_count=len(self.test_bucketList.view_bucketlists())
 		self.test_bucketList.add_item("Swimming")
 		increment=len(self.test_bucketList.view_bucketlists())
-		self.assertEqual(items_count,increment,"Item not added to bucketlist")
+		self.assertNotEqual(items_count,increment,"Item not added to bucketlist")
 
 	def test_bucketlist_edit_item(self):
 		pass
@@ -39,5 +39,8 @@ class TestBucketList(unittest.TestCase):
 		pass
 
 	def test_view_bucketlist_items(self):
+		pass
+
+	def test_view_bucketlist_item(self):
 		pass
 
