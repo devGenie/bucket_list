@@ -13,9 +13,11 @@ class TestUser(unittest.TestCase):
 
 	def test_add_bucketlist(self):
 		bucket_lists=self.test_user.view_bucketlist()
+		len1=len(bucket_lists)
 		self.test_user.add_bucketlist("before 30",30)
 		new_bucket_lists=self.test_user.view_bucketlist()
-		self.assertNotEqual(len(bucket_lists),len(new_bucket_lists),"Bucketlist not added")
+		len2=len(new_bucket_lists)
+		self.assertNotEqual(len2,len1,"Bucketlist not added")
 
 	def test_view_bucketlist(self):
 		self.test_user.add_bucketlist("before 30",30)
