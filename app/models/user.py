@@ -13,7 +13,13 @@ class User(object):
 
 	def login(self,email,password):
 		"""The login method checks if the user email and password match the ones provided by the app"""
-		pass
+		if email==self.email and password==self.password:
+			self.login_status=True
+			return True
+		else:
+			print(self.email)
+			print(self.password)
+			return False
 
 	def get_info(self):
 		"""This method rreturns a dictionary of user info"""
