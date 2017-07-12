@@ -20,10 +20,14 @@ class TestUser(unittest.TestCase):
 		self.assertEqual(self.test_user.password,"256mygame","User has not been assigned a password")
 
 	def test_user_assigned_email(self):
+		"""Testing if user has been assigned an email"""
 		self.assertEqual(self.test_user.email,"jonen54@gmail.com","User not assigned email")
 
-	def test_user_is_object(self):
-		self.assertIsInstance(self.test_user,user.User,"test user is not an instance of class User")
+	def test_user_login(self):
+		"""Testing if the login function starts"""
+		logged_in=self.test_user.login("jonen54@gmail.com","256thmygame")
+		self.assertTrue(logged_in,"User not able to login")
+
 
 	def test_add_bucketlist(self):
 		bucket_lists=self.test_user.view_bucketlist()
