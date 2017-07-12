@@ -38,6 +38,8 @@ class User(object):
 	def delete_bucketlist(self,name):
 		if name in self.bucketlists:
 			del self.bucketlists[name]
+		else:
+			return "Bucket list not deleted"
 
 
 
