@@ -8,6 +8,9 @@ class TestUser(unittest.TestCase):
 	def test_user_created(self):
 		self.assertEqual(self.test_user.name,"Onen Julius","User name not initialized")
 
+	def test_user_is_object(self):
+		self.assertIsInstance(self.test_user,User,"test user is not an instance of class User")
+
 	def test_add_bucketlist(self):
 		bucket_lists=self.test_user.view_bucketlist()
 		self.test_user.add_bucketlist("before 30",30)
