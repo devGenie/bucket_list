@@ -13,7 +13,7 @@ def dashboard():
 
 @app.route('/api/register',methods=['POST'])
 def register():
-	first_name=request.form['username']
+	first_name=request.form['first_name']
 	last_name=request.form['last_name']
 	email=request.form['email']
 	password=request.form['password']
@@ -46,14 +46,21 @@ def add_item(bucketlist):
 	global current_user
 	item=request.form['item']
 	item=current_user.add_bucketlist_item(bucketlist,item)
-	if item not false:
-		return jsonify({"status":item})
+	if item !=False:
+		return jsonify({"status":"success","message":"bucketlist item added succcessfully","data":item})
 	else:
 		return jsonify({"status":"failed","message":"Bucketlist item not added"})
 
-@app.route('/api/item<int:item_id>/edit',methods=['POST'])
-def edit_item(item_id):
-	pass
+@app.route('/api/<string:bucketlist>/item/<string:item>/edit',methods=['POST'])
+def edit_item(bucketlist,item):
+	global current_user
+	old_name=item
+	new_name=request.form['new_name']
+	result=current_user.edit_bucketlist_item(bucketlist,old_name,new_name)
+	if result !=False:
+		return jsonify({"status":"success","message":"Item edited successfully","data":result})
+	else:
+		return jsonify({"status":"failed","message":"Item failed to edit"})
 
 @app.route("/api/item/<string:name>/delete",methods=['POST'])
 def delete_item():

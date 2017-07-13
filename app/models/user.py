@@ -45,6 +45,18 @@ class User(object):
 		"""This method edits the bucketlist specified"""
 		pass
 
+	def add_bucketlist_item(self,bucketlist,item_name):
+		"""This method edits the bucketlist specified"""
+		if bucketlist in self.bucketlists:
+			bucket=self.bucketlists[bucketlist]
+			bucket.add_item(item_name)
+			if item_name in bucket.bucketlist_items:
+				return bucket.view_item(item_name)
+			else:
+				return False
+		else:
+			return False
+
 	def delete_bucketlist(self,name):
 		if name in self.bucketlists:
 			del self.bucketlists[name]
