@@ -93,9 +93,17 @@ def view_bucket(bucketname):
 		return jsonify({"status":"failed","message":"Bucketlist does not exist"})		
 
 
-@app.route("/api/item")
+@app.route("/api/<string:bucketlist>/item",methods=['POST'])
+def add_item():
+	pass
+
 def view_item():
 	pass
-@app.route("/api/items/<path:item_name>")
-def view_items(item_name):
+
+@app.route("/api/items/bucketlist/<string:bucketlist>")
+def view_bucketlist_item(bucketlist):
+	pass
+
+@app.route("/api/item/<string:bucketlist>/<string:item_name>")
+def view_items(bucketlist,item_name):
 	pass
