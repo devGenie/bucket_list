@@ -34,12 +34,12 @@ def login():
 
 @app.route("/api/bucketlist",methods=['POST'])
 def add_bucketlist():
-	name=request.form['title']
-	due_date=request.form['due_date']
+	name=request.form['name']
+	due_date=request.form['description']
 	global current_user
 	current_user.add_bucketlist(name,due_date)
 	bucketlist=current_user.view_bucketlist(name)
-	return jsonify({"status":"success","message":"Bucketlist added successfully","data":bucketlist})
+	return jsonify({"status":"success","message":"Bucketlist added successfully","data":name})
 
 @app.route("/api/bucketlistitem/<string:bucketlist>/item/add",methods=['POST'])
 def add_item(bucketlist):
