@@ -27,7 +27,7 @@
 		<div id="forms" class="row">
 			<div class="flipper">
 				<div id="loginForm_area">
-					<form class="col s12 translucent">
+					<form class="col s12 translucent" method="POST" id="login_form">
 						<h5 class="col s12 center">
 							Login
 						</h5>
@@ -57,7 +57,7 @@
 				</div>
 
 				<div id="registerForm_area">
-					<form class="col s12 translucent">
+					<form class="col s12 translucent" method="POST" id="reg_form">
 						<h5 class="col s12 center">
 							Register
 						</h5>
@@ -138,6 +138,36 @@
 		 $(".flip_me").click(function(){
 		 	$(".flipper").toggleClass("flip");
 		 });
+
+		 $("#reg_form").submit(function(event){
+		 		event.preventDefault();
+		 		var data=$(this).serialize()
+		 		alert(data)
+		 		$.ajax({
+		 			"type":"POST",
+		 			"dataType":"json",
+		 			"url":"/api/register",
+		 			 "data":data,
+		 			success: function(res){
+		 				alert(JSON.stringify(res))
+		 			}
+		 		});
+		 	})
+
+		 $("#login_form").submit(function(event){
+		 	event.preventDefault();
+		 		var data=$(this).serialize()
+		 		alert(data)
+		 		$.ajax({
+		 			"type":"POST",
+		 			"dataType":"json",
+		 			"url":"/api/login",
+		 			 "data":data,
+		 			success: function(res){
+		 				alert(JSON.stringify(res))
+		 			}
+		 		});
+		 })
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
 			selectYears:100
