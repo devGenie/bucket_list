@@ -41,6 +41,8 @@ class User(object):
 			return {"name":bucketlist.name,"due_age":bucketlist.due_age}
 		elif not name:
 			return self.bucketlists
+		elif name not in self.bucketlists:
+			return False
 
 	def edit_bucketlist(self,bucket,name,due_age):
 		"""This method edits the bucketlist specified"""
