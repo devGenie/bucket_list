@@ -68,8 +68,16 @@ def delete_item():
 
 @app.route("/api/bucketlists",defaults={'bucketname':''})
 @app.route("/api/bucketlists/<string:bucketname>")
-def view_items(bucketname):
-	pass
+def view_buckets(bucketname):
+	bucketlists=[]
+	global current_user
+	if not bucketname:
+		bucketlists.append(current_user.view_bucketlist())
+	else:
+		buckets=current_user.view_bucketlist()
+		for bucket in buckets:
+			bucketlists.append(current_user.view_bucketlist(bucket))
+	return jsonify({"status":"success","data":bucketlists})
 
 @app.route("/api/items",defaults={'item_name':''})
 @app.route("/api/items/<path:item_name>")
