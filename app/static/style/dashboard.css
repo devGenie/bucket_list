@@ -54,6 +54,6 @@
 	padding-left: 5px;
 }
 
-#activityModal{
+#activityModal,#item_model{
 	width: 500px !important;
 }
