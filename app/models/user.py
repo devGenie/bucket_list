@@ -10,6 +10,7 @@ class User(object):
 		self.email=email
 		self.password=password
 		self.bucketlists={}
+		self.login_status=False
 
 	def login(self,email,password):
 		"""The login method checks if the user email and password match the ones provided by the app"""
