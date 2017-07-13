@@ -81,7 +81,7 @@
 </div>
 
 
-	<form class="modal" id="activityModal">
+	<form class="modal" id="activityModal" method="POST">
 		<h4 class="modal-header center">
 			Add Activity
 		</h4>
@@ -89,18 +89,18 @@
 		<div class="modal-content">
 			<div class="input-field">
 				<input type="text" name="name" id="name" class="validate">
-				<label for="email">Name of activity</label>				
+				<label for="name">Name</label>				
 			</div>
 
 			<div class="input-field">
-				<textarea name="story"></textarea>
-				<label for="story">Story</label>
+				<input type="text" name="description"></input type="text">
+				<label for="description">Description</label>
 			</div>
 
 			<div class="file-field input-field">
 					<div class="btn">
 						  <span>Image</span>
-						  <input type="file">
+						  <input type="file" name="dpic">
 					</div>
 					<div class="file-path-wrapper">
 					<input class="file-path validate" type="text">
@@ -122,7 +122,47 @@
 			StartingTop:'10%'
 		});
 
-		
+		$.ajax({
+			"type":"GET",
+			"dataType":"json",
+			"url":"/api/bucketlists/hey",
+			 success:function(res){
+			 	$.each(res['data'],function(idx,data){
+			 		var elem='<div class="col s3"><div class="card bk_card">';
+			 		elem+='<div class="card-image "><img src="static/images/1.jpg"/></div><span class="card-title bk_title">';
+			 		elem+=data["name"];
+			 		elem+='</span><div class="card-content bk-content"></div>'
+			 		elem+='</div></div></div>';
+			 		$("#bucketlists").append(elem)
+
+			
+			 	})
+			 }
+		});
+
+		$("#activityModal").submit(function(event){
+			event.preventDefault()
+			data=$(this).serialize()
+			$.ajax({
+				"type":"POST",
+				"dataType":"json",
+				"url":"/api/bucketlist",
+				"data":data,
+				success:function(res){
+					if(res['status']=="success"){
+						var elem='<div class="col s3"><div class="card bk_card">';
+						elem+='<div class="card-image "><img src="static/images/1.jpg"/></div><span class="card-title bk_title">';
+						elem+=res["data"]['name'];
+						elem+='</span><div class="card-content bk-content"></div>'
+						elem+='</div></div></div>';
+						$("#bucketlists").append(elem)
+					}else{
+						alert(res['message'])
+					}
+					//alert(JSON.stringify(res))
+				}
+			});
+		})
 		/*$(".pickdate").pickadate({
 			selectMonths:true,
 			selectYears:100
