@@ -149,7 +149,9 @@
 		 			"url":"/api/register",
 		 			 "data":data,
 		 			success: function(res){
-		 				alert(JSON.stringify(res))
+		 				if(res['status']=="success"){
+		 					window.location.href="/dashboard"
+		 				}
 		 			}
 		 		});
 		 	})
@@ -164,7 +166,9 @@
 		 			"url":"/api/login",
 		 			 "data":data,
 		 			success: function(res){
-		 				alert(JSON.stringify(res))
+		 				if(res['status']=="success"){
+		 					window.location.href="/dashboard"
+		 				}
 		 			}
 		 		});
 		 })
