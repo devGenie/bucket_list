@@ -66,6 +66,11 @@ def edit_item(bucketlist,item):
 def delete_item():
 	pass
 
+@app.route("/api/bucketlists",defaults={'bucketname':''})
+@app.route("/api/bucketlists/<string:bucketname>")
+def view_items(bucketname):
+	pass
+
 @app.route("/api/items",defaults={'item_name':''})
 @app.route("/api/items/<path:item_name>")
 def view_items(item_name):
