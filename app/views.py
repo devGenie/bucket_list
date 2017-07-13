@@ -2,6 +2,7 @@ from flask import render_template,jsonify,request,url_for
 from app import app
 from app.models import user
 
+"""Views defines routes to be called by the client"""
 current_user=""
 @app.route('/')
 def index():
@@ -13,6 +14,7 @@ def dashboard():
 
 @app.route('/api/register',methods=['POST'])
 def register():
+	"""Registrtaion route"""
 	first_name=request.form['first_name']
 	last_name=request.form['last_name']
 	email=request.form['email']
@@ -23,6 +25,7 @@ def register():
 
 @app.route("/api/login",methods=['POST'])
 def login():
+	"""Login route"""
 	email=request.form['email']
 	password=request.form['password']
 	global current_user
@@ -34,6 +37,7 @@ def login():
 
 @app.route("/api/bucketlist",methods=['POST'])
 def add_bucketlist():
+	"""Add user's bucketlist"""
 	name=request.form['name']
 	due_date=request.form['description']
 	global current_user
