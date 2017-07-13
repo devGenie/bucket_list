@@ -57,9 +57,9 @@
 					</div>
 
 					<div class="col s12" id="displayArea">
-						<p id="story">
+						<div id="story">
 
-						</p>
+						</div>
 					</div>
 
 					<div class="col s12" id="actions">
@@ -150,7 +150,7 @@
 				"data":data,
 				success:function(res){
 					if(res['status']=="success"){
-						var elem='<div class="col s3"><div class="card bk_card"'+res['data']+'>';
+						var elem='<div class="col s3 lst" data-elem="'+res['data']+'"><div class="card bk_card">';
 						elem+='<div class="card-image "><img src="static/images/1.jpg"/></div><span class="card-title bk_title">';
 						elem+=res["data"];
 						elem+='</span><div class="card-content bk-content"></div>'
@@ -160,6 +160,26 @@
 					}else{
 						alert(res['message'])
 					}
+
+					$('.lst').each(function(){
+						$(this).click(function(){
+							data=$(this).attr('data-elem')
+
+							$.ajax({
+								"type":"GET",
+								"dataType":"json",
+								"url":"http://127.0.0.1:5000/api/bucketlists/"+data,
+								success:function(res){
+									$.each(res['data'],function(idx,elem1){
+										alert(elem1)
+										var element=$('<div class="item">');
+										element.append('name')
+										$("#story").append(element)
+									})
+								}
+							})
+						})
+					})
 					//alert(JSON.stringify(res))
 				}
 			});
