@@ -14,11 +14,6 @@
 	<div class="nav-wrapper">
 		<div class="container">
 		<a href="#" class="brand-logo">BucketlistFairy</a>
-		<ul id="topNave" class="right hide-on-med-and-down">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Logout</a></li>
-		</ul>
 		</div>
 	</div>
 </nav>
@@ -26,20 +21,9 @@
 <div class="container">
 		<div class="row" id="bklist_controller">
 			<div class="col s2">
-				<button class="waves-effect waves-light btn" data-target="activityModal">Add Activity</button>
+				<button class="waves-effect waves-light btn" data-target="activityModal">Add Bucketlist</button>
 			</div>	
 			
-			<div class="col s4">
-				<button class=" waves-effect waves-light btn col s2 flat">All</button>
-				<button class="btn waves-effect waves-light col s5">Pending</button>
-				<button class="btn waves-effect waves-light col s5">Archieved</button>
-			</div>			
-
-			<div class="search-wrapper card col s6 right" id="searchBar">
-	            <input id="search" placeholder="search">
-	            <!--<i class="material-icons">search</i>-->
-	            <div class="search-results"></div>
-          </div>
 
 		</div>
 
@@ -47,14 +31,6 @@
 		<div class="row" id="demoArea">
 				<img src="static/images/1.jpg" class="col s9" id="demoImg"/>
 				<div class="col s3">
-					<div id="dates_area" class="col s12">
-						<div>
-							Entered On:
-						</div>
-						<div>
-							Archieved On:
-						</div>
-					</div>
 
 					<div class="col s12" id="displayArea">
 						<div id="story">
@@ -63,9 +39,9 @@
 					</div>
 
 					<div class="col s12" id="actions">
-						<button class="btn col s4">Edit</button>
-						<button class="btn col s4">Done</button>
-						<button class="btn col s4">Delete</button>
+						<button class="btn col s4" id="add_item">Add</button>
+						<button class="btn col s4" id="edit_bucket_list">Edit</button>
+						<button class="btn col s4" id="delete_bucket_list">Delete</button>
 					</div>
 				</div>
 		</div>
@@ -83,7 +59,7 @@
 
 	<form class="modal" id="activityModal" method="POST">
 		<h4 class="modal-header center">
-			Add Activity
+			Add Bucket list
 		</h4>
 
 		<div class="modal-content">
@@ -166,16 +142,20 @@
 
 		$('body').on('click', '.lst', function() {
 			data=$(this).attr('data-elem')
+			$("#add_item").attr("data-bucketlist",data)
+			$("#edit_bucket_list").attr("data-bucketlist",data)
+			$("#delete_bucket_list").attr("data-bucketlist",data)
+
 			$.ajax({
 					"type":"GET",
 					"dataType":"json",
-					"url":"/api/bucketlist/"+data,
+					"url":"/api/items/bucketlist/"+data,
 					success:function(res){
 						alert(JSON.stringify(res))
 						$.each(res['data'],function(idx,elem1){
 							alert(JSON.stringify(elem1))
 							var element=$('<div class="item">');
-							//element.append(elem1['name'])
+							element.append(elem1['name'])
 							$("#story").append(element)
 						})
 					}
