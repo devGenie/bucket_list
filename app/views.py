@@ -1,9 +1,11 @@
-from flask import render_template,jsonify,request,url_for
+from flask import render_template, jsonify, request
 from app import app
 from app.models import user
 
 """Views defines routes to be called by the client"""
-current_user=""
+current_user = ""
+
+
 @app.route('/')
 def index():
 	return render_template("index.html")
@@ -70,20 +72,30 @@ def edit_item(bucketlist,item):
 def delete_item():
 	pass
 
-@app.route("/api/bucketlists",defaults={'bucketname':''})
-@app.route("/api/bucketlists/<string:bucketname>")
-def view_buckets(bucketname):
-	bucketlists=[]
+@app.route("/api/bucketlists")
+def view_buckets():
 	global current_user
-	if not bucketname:
-		bucketlists.append(current_user.view_bucketlist())
-	else:
-		buckets=current_user.view_bucketlist()
-		for bucket in buckets:
-			bucketlists.append(current_user.view_bucketlist(bucket))
+	bucketlists=[]
+
+	buckets=current_user.view_bucketlist()
+	for bucket in buckets:
+		bucketlists.append(current_user.view_bucketlist(bucket))
 	return jsonify({"status":"success","data":bucketlists})
 
-@app.route("/api/items",defaults={'item_name':''})
+@app.route("/api/bucketlist/<string:bucketname>")
+def view_bucket(bucketname):
+	global current_user
+	resp=current_user.view_bucketlist(bucketname)
+
+	if resp:
+		return jsonify([{"status":"success","data":resp}])
+	else:
+		return jsonify({"status":"failed","message":"Bucketlist does not exist"})		
+
+
+@app.route("/api/item")
+def view_item():
+	pass
 @app.route("/api/items/<path:item_name>")
 def view_items(item_name):
 	pass
