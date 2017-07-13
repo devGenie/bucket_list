@@ -39,7 +39,7 @@
 					</div>
 
 					<div class="col s12" id="actions">
-						<button class="btn col s4" id="add_item">Add</button>
+						<button class="btn col s4" id="add_item" class="waves-effect waves-light btn" data-target="item_model">Add</button>
 						<button class="btn col s4" id="edit_bucket_list">Edit</button>
 						<button class="btn col s4" id="delete_bucket_list">Delete</button>
 					</div>
@@ -86,7 +86,25 @@
 		<div class="input-field">
 			<button class="btn">Add</button>
 		</div>
+		</div>
 	</form>
+
+	<form class="modal" id="item_model" method="POST">
+		<h4 class="modal-header center">
+			Add Item
+		</h4>
+
+		<div class="modal-content">
+			<div class="input-field">
+				<input type="text" name="name" id="name" class="validate">
+				<label for="name">Name</label>				
+			</div>
+
+		<div class="input-field">
+			<button class="btn">Add</button>
+		</div>
+	</form>
+
 	</div>
 </div>
 
