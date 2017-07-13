@@ -69,6 +69,20 @@ class User(object):
 		else:
 			return False
 
+	def view_bucket_list_item(self,bucketlist,item_name=""):
+		if bucketlist in self.bucketlists:
+			items=[]
+			bucket=self.bucketlists[bucketlist]
+			if item_name:
+				items.append(bucket.get_item(item_name))
+			else:
+				res=bucket.view_bucketlists()
+				for itm in res:
+					items.append(bucket.get_item(itm))
+			return items
+		else:
+			return False
+
 	def delete_bucketlist(self,name):
 		if name in self.bucketlists:
 			del self.bucketlists[name]
