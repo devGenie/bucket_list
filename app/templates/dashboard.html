@@ -125,16 +125,15 @@
 		$.ajax({
 			"type":"GET",
 			"dataType":"json",
-			"url":"/api/bucketlists/hey",
+			"url":"/api/bucketlists",
 			 success:function(res){
 			 	$.each(res['data'],function(idx,data){
-			 		var elem='<div class="col s3"><div class="card bk_card">';
+			 		var elem='<div class="col s3 lst" data-elem="'+data['name']+'"><div class="card bk_card">';
 			 		elem+='<div class="card-image "><img src="static/images/1.jpg"/></div><span class="card-title bk_title">';
 			 		elem+=data["name"];
 			 		elem+='</span><div class="card-content bk-content"></div>'
 			 		elem+='</div></div></div>';
 			 		$("#bucketlists").append(elem)
-
 			
 			 	})
 			 }
@@ -157,37 +156,31 @@
 						elem+='</div></div></div>';
 						$("#bucketlists").append(elem)
 						alert(res['message'])
-					}else{
+						}else{
 						alert(res['message'])
 					}
-
-					$('.lst').each(function(){
-						$(this).click(function(){
-							data=$(this).attr('data-elem')
-
-							$.ajax({
-								"type":"GET",
-								"dataType":"json",
-								"url":"http://127.0.0.1:5000/api/bucketlists/"+data,
-								success:function(res){
-									$.each(res['data'],function(idx,elem1){
-										alert(elem1)
-										var element=$('<div class="item">');
-										element.append('name')
-										$("#story").append(element)
-									})
-								}
-							})
-						})
-					})
 					//alert(JSON.stringify(res))
 				}
 			});
-		})
-		/*$(".pickdate").pickadate({
-			selectMonths:true,
-			selectYears:100
-		});*/
+		});
+
+		$('body').on('click', '.lst', function() {
+			data=$(this).attr('data-elem')
+			$.ajax({
+					"type":"GET",
+					"dataType":"json",
+					"url":"/api/bucketlist/"+data,
+					success:function(res){
+						alert(JSON.stringify(res))
+						$.each(res['data'],function(idx,elem1){
+							alert(JSON.stringify(elem1))
+							var element=$('<div class="item">');
+							//element.append(elem1['name'])
+							$("#story").append(element)
+						})
+					}
+				})
+		});
 	});
 </script>
 </html>
