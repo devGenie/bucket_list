@@ -2,7 +2,11 @@ from flask import render_template, jsonify, request
 from app import app
 from app.models import user
 
-"""Views defines routes to be called by the client"""
+"""Views defines routes to be called by the client. These rotutes return json data to be consumed by a client. For storing the data 
+	during the life time of the application, I am using a super global current user to store an instance of the user class objet
+
+	This module manages communication between the flask server and the Graphic user interface
+"""
 current_user = ""
 
 
@@ -16,7 +20,8 @@ def dashboard():
 
 @app.route('/api/register',methods=['POST'])
 def register():
-	"""Registrtaion route"""
+	"""Registrtaion route, it accepts first_name,last_name,email and password from a user form and instatiates a user object which is 
+	later assigned to the global variable current_user"""
 	first_name=request.form['first_name']
 	last_name=request.form['last_name']
 	email=request.form['email']
@@ -27,7 +32,8 @@ def register():
 
 @app.route("/api/login",methods=['POST'])
 def login():
-	"""Login route"""
+	"""Login route accepts email and password from a form and compares it with the ones set in the User class by passing both credentials as arguments
+	to the login method"""
 	email=request.form['email']
 	password=request.form['password']
 	global current_user
@@ -39,7 +45,7 @@ def login():
 
 @app.route("/api/bucketlist",methods=['POST'])
 def add_bucketlist():
-	"""Add user's bucketlist"""
+	"""Add a user's bucketlist"""
 	name=request.form['name']
 	due_date=request.form['description']
 	global current_user
@@ -49,6 +55,7 @@ def add_bucketlist():
 
 @app.route("/api/bucketlistitem/<string:bucketlist>/item/add",methods=['POST'])
 def add_item(bucketlist):
+	"""This adds an Item to the bucket list and returns a JSON string with the ppropriate status"""
 	global current_user
 	item=request.form['item']
 	item=current_user.add_bucketlist_item(bucketlist,item)
@@ -67,10 +74,6 @@ def edit_item(bucketlist,item):
 		return jsonify({"status":"success","message":"Item edited successfully","data":result})
 	else:
 		return jsonify({"status":"failed","message":"Item failed to edit"})
-
-@app.route("/api/item/<string:name>/delete",methods=['POST'])
-def delete_item():
-	pass
 
 @app.route("/api/bucketlists")
 def view_buckets():
@@ -92,7 +95,7 @@ def edit_bucketlist(bucketlist):
 		if example:
 			tmp=current_user.bucketlists[bucketlist]
 			del current_user.bucketlists[bucketlist]
-			current_user.bucketlists[bucketlist]=tmp
+			current_user.bucketlists[name]=tmp
 			return jsonify({'status':'success','message':'Bucketlist edited successfully'})
 		else:
 			return jsonify({'status':'fail','message':'Bucketlist not edited'})
