@@ -115,3 +115,12 @@ def view_items(bucketlist,item_name):
 		return jsonify({"status":"success","data":list_items})
 	else:
 		return jsonify({"status":"failed","message":"No items returned"})
+
+@app.route("/api/delete/<string:bucketlist>/<string:item_name>")
+def delete(bucketlist,item_name):
+	global current_user
+	bucketlist_item=current_user.delete_bucketlist_item(bucketlist,item_name)
+	if bucketlist_item:
+		return jsonify({"status":"success","data":"Deleted successfully"})
+	else:
+		return jsonify({"status":"failed","message":"Delete fail"})
