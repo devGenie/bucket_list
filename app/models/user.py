@@ -44,9 +44,12 @@ class User(object):
 		elif name not in self.bucketlists:
 			return False
 
-	def edit_bucketlist(self,bucket,name,due_age):
+	def edit_bucketlist(self,bucket,name):
 		"""This method edits the bucketlist specified"""
-		pass
+		if bucket in self.bucketlists:
+			return bucket.edit('name')
+		else:
+			return False
 
 	def edit_bucketlist_item(self,bucket,old_name,new_name):
 		"""This edits an item in the bucketlist"""
@@ -92,6 +95,13 @@ class User(object):
 			del self.bucketlists[name]
 		else:
 			return "Bucket list not deleted"
+
+	def delete_bucketlist_item(self,bklist,name):
+		if bklist in self.bucketlists:
+			res=self.bucketlists[bklist].delete_item(name)
+			return res
+		else:
+			return False
 
 
 
