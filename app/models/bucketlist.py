@@ -34,3 +34,5 @@ class BucketList(object):
 		if name in self.bucketlist_items:
 			item=self.bucketlist_items[name]
 			return item
+		else:
+			return False
