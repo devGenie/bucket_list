@@ -74,11 +74,15 @@ class User(object):
 			items=[]
 			bucket=self.bucketlists[bucketlist]
 			if item_name:
-				items.append(bucket.get_item(item_name))
+				last=bucket.get_item(item_name)
+				if last:
+					items.append(last)
 			else:
 				res=bucket.view_bucketlists()
 				for itm in res:
-					items.append(bucket.get_item(itm))
+					last=bucket.get_item(itm)
+					if last:
+						items.append(last)
 			return items
 		else:
 			return False
