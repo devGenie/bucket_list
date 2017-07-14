@@ -11,8 +11,10 @@ class BucketList(object):
 	def view_bucketlists(self):
 		return self.bucketlist_items
 
-	def edit(self,name):
+	def edit(self,name,due_age):
 		self.name=name
+		self.due_age=due_age
+		return True
 
 	def add_item(self,name):
 		list_item=ListItem(name)
