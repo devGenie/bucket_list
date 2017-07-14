@@ -82,6 +82,23 @@ def view_buckets():
 		bucketlists.append(current_user.view_bucketlist(bucket))
 	return jsonify({"status":"success","data":bucketlists})
 
+@app.route("/api/bucketlist/<string:bucketlist>/edit",methods=['POST'])
+def edit_bucketlist(bucketlist):
+	global current_user
+	if bucketlist in current_user.bucketlists:
+		name=request.form['name']
+		due_date=request.form['name']
+		example=current_user.bucketlists[bucketlist].edit(name,due_date)
+		if example:
+			tmp=current_user.bucketlists[bucketlist]
+			del current_user.bucketlists[bucketlist]
+			current_user.bucketlists[bucketlist]=tmp
+			return jsonify({'status':'success','message':'Bucketlist edited successfully'})
+		else:
+			return jsonify({'status':'fail','message':'Bucketlist not edited'})
+	else:
+		return jsonify({'status':'fail','message':'Bucketlist not edited'})
+
 @app.route("/api/bucketlist/<string:bucketname>")
 def view_bucket(bucketname):
 	global current_user
