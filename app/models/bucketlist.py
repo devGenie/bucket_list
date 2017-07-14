@@ -22,9 +22,9 @@ class BucketList(object):
 
 	def edit_item(self,item,name):
 		temp=item
-		del bucketlist_items[item.name]
+		del self.bucketlist_items[item.name]
 		temp.name=name
-		bucketlist_items[name]=temp
+		self.bucketlist_items[name]=temp
 		return temp.show_info()
 
 	def delete_item(self,name):
