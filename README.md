@@ -7,48 +7,68 @@ A bucket list is a list of stuff you ought to do sometime in the future mostly b
 **Installation**
 
 ```
-$ git clone https://github.com/devGenie/bucket_list.git
+	$ git clone https://github.com/devGenie/bucket_list.git
 ``` 
 
 Navigate to the root folder
 
 ```
-$ cd bucket_list
-```
-
-Fetch from master
+	$ cd bucket_list
 
 ```
-$ git fetch origin master
+
+	Fetch from master
+
+```
+
+	$ git fetch origin master
+
 ```
 
 Setup Virtual Environment
 
 ```
-$ pip install virtualenv```
+	$ pip install virtualenv
+```
 
-```$ pip install virtualenvwrapper```
+```
+	$ pip install virtualenvwrapper
+```
 
-```$ export WORKHOME=~/Envs```
+```
+	$ export WORKHOME=~/Envs```
 
-```$ source /usr/local/bin/virtualenvwrapper.sh```
+```
+	$ source /usr/local/bin/virtualenvwrapper.sh```
 
-```$ mkvirtualenv bucketlist```
+```
+	$ mkvirtualenv bucketlist
+```
 
-```$ workon bucketlist```
+```
+	$ workon bucketlist
+```
 
 install the requirements
 
-```$ pip install requirements.txt```
+```
+	$ pip install requirements.txt
+```
 
 OR
 
-```$ pip install --upgrade -r requirements.txt```
+```
+	$ pip install --upgrade -r requirements.txt
+```
 
 Provide the flask application environment variable
 
-```$ export FLASK_APP=run.py```
+```
+	$ export FLASK_APP=run.py
+```
 
 run the flask server
 
-```$ flask run```
+```
+	$ flask run
+```
