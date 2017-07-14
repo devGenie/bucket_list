@@ -107,4 +107,11 @@ def view_bucketlist_item(bucketlist):
 
 @app.route("/api/item/<string:bucketlist>/<string:item_name>")
 def view_items(bucketlist,item_name):
-	pass
+	global current_user
+	bucketlist_item=current_user.view_bucket_list_item(bucketlist,item_name)
+	if bucketlist_item:
+		list_items=[]
+		list_items.append(bucketlist_item[0].show_info())
+		return jsonify({"status":"success","data":list_items})
+	else:
+		return jsonify({"status":"failed","message":"No items returned"})
