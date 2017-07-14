@@ -43,11 +43,6 @@ class TestUser(unittest.TestCase):
 		bucket_list=self.test_user.view_bucketlist("before 30")
 		self.assertDictEqual({"name":"before 30","due_age":30},bucket_list,"Bucket list not returned")
 
-	def test_edit_bucket_list(self):
-		self.test_user.add_bucketlist("before 25",25)
-		bucket_list=self.test_user.view_bucketlist("before 25")
-		self.test_user.edit_bucketlist(bucket_list,"before 30",30)
-		bucket_list_edit=self.test_user.view_bucketlist
 
 	def test_delete_bucket_list(self):
 		self.test_user.add_bucketlist("My bucketlist",40)
