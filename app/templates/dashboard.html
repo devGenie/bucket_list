@@ -110,14 +110,14 @@
 		</div>
 	</form>
 
-	<form class="modal" id="edit_itm_model" method="POST">
+	<form class="modal" id="edit_itm_model" method="POST" data-item=''>
 		<h4 class="modal-header center">
 			Edit Item
 		</h4>
 
 		<div class="modal-content">
 			<div class="input-field">
-				<input type="text" name="item" id="edit_name" class="validate">
+				<input type="text" name="new_name" id="edit_name" class="validate">
 				<label for="name">Name</label>				
 			</div>
 
@@ -224,6 +224,39 @@
 
 		$('body').on('click', '.edit_itm', function() {
 			$("#edit_itm_model").modal('open')
+			$("#edit_itm_model").attr("data-item",$(this).attr('data-elem'))
+		});
+
+		$("#edit_itm_model").submit(function(event){
+			event.preventDefault()
+			var obj_id=$("#add_item").attr("data-bucketlist")
+			var item=$(this).attr("data-item")
+			data=$(this).serialize()
+			$.ajax({
+				"type":"POST",
+				"dataType":"json",
+				"url":"/api/"+obj_id+"/item/"+item+"/edit",
+				"data":data,
+				success:function(res){
+					if(res['status']=="success"){
+						$("#story").html("")
+						$.ajax({
+								"type":"GET",
+								"dataType":"json",
+								"url":"/api/items/bucketlist/"+obj_id,
+								success:function(res){
+									alert(JSON.stringify(res))
+									$.each(res['data'],function(idx,elem1){
+										var element=$('<div class="item">');
+										element.append("<input type='checkbox' class='genie_check left'/><div class='li_im left'>"+elem1['name']+"</div><div class='right'><span class='edit_itm right fa fa-pencil' data-elem='"+elem1['name']+"'></span><span class='delete_item right fa fa-trash' data-elem='"+elem1['name']+"'></span>");
+										$("#story").append(element)
+									})
+								}
+							})
+					}
+					//alert(JSON.stringify(res))
+				}
+			});
 		});
 	});
 </script>
