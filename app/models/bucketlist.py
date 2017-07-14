@@ -11,16 +11,26 @@ class BucketList(object):
 	def view_bucketlists(self):
 		return self.bucketlist_items
 
+	def edit(self,name):
+		self.name=name
+
 	def add_item(self,name):
 		list_item=ListItem(name)
 		self.bucketlist_items[name]=list_item
 
 	def edit_item(self,item,name):
-		item.name=name
-		return item.show_info()
+		temp=item
+		del bucketlist_items[item.name]
+		temp.name=name
+		bucketlist_items[name]=temp
+		return temp.show_info()
 
 	def delete_item(self,name):
-		pass
+		if name and name in self.bucketlist_items:
+			del self.bucketlist_items[name]
+			return True
+		else:
+			return False
 
 	def complete_item(self,name):
 		pass
