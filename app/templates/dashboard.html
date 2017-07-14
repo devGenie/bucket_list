@@ -47,7 +47,7 @@
 
 					<div class="col s12" id="actions">
 						<button class="btn col s4" id="add_item" class="waves-effect waves-light btn" data-target="item_model">Add</button>
-						<button class="btn col s4" id="edit_bucket_list">Edit</button>
+						<button class="btn col s4" id="edit_bucket_list" class="waves-effect waves-light btn" data-target="editBucketlist">Edit</button>
 						<button class="btn col s4" id="delete_bucket_list">Delete</button>
 					</div>
 				</div>
@@ -92,6 +92,28 @@
 
 		<div class="input-field">
 			<button class="btn">Add</button>
+		</div>
+		</div>
+	</form>
+
+	<form class="modal" id="editBucketlist" method="POST">
+		<h4 class="modal-header center">
+			Edit Bucket list
+		</h4>
+
+		<div class="modal-content">
+			<div class="input-field">
+				<input type="text" name="name" id="name" class="validate">
+				<label for="name">Name</label>				
+			</div>
+
+			<div class="input-field">
+				<input type="text" name="due_age"></input type="text">
+				<label for="description">Description</label>
+			</div>
+
+		<div class="input-field">
+			<button class="btn">Edit</button>
 		</div>
 		</div>
 	</form>
@@ -245,6 +267,21 @@
 						alert(JSON.stringify(res)+" "+obj_id+" "+data)
 					}
 				})
+		});
+
+		$("#editBucketlist").submit(function(event){
+			event.preventDefault()
+			var obj_id=$("#add_item").attr("data-bucketlist")
+			data=$(this).serialize()
+			$.ajax({
+				"type":"POST",
+				"dataType":"json",
+				"url":"/api/bucketlist/"+obj_id+"/edit",
+				"data":data,
+				success:function(res){
+					alert(res['message'])
+				}
+			})
 		});
 
 		//http://127.0.0.1:5000/api/delete/op/hey1
