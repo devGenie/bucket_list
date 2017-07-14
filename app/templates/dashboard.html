@@ -30,6 +30,9 @@
 
 		<div class="card">
 		<div class="row" id="demoArea">
+			<div id="closure">
+				<h1>Please select a bucket list below!</h1>
+			</div>
 				<img src="static/images/1.jpg" class="col s9" id="demoImg"/>
 				<div class="col s3">
 
@@ -211,13 +214,17 @@
 					"dataType":"json",
 					"url":"/api/items/bucketlist/"+data,
 					success:function(res){
-						alert(JSON.stringify(res))
-						$.each(res['data'],function(idx,elem1){
-							var element=$('<div class="item">');
-							$("#title").html(data)
-							element.append("<input type='checkbox' class='genie_check left'/><div class='li_im left'>"+elem1['name']+"</div><div class='right'><span class='edit_itm right fa fa-pencil' data-elem='"+elem1['name']+"'></span><span class='delete_item right fa fa-trash' data-elem='"+elem1['name']+"'></span>");
-							$("#story").append(element)
-						})
+						$("#closure").hide()
+						if(res['status']=="success"){
+							$.each(res['data'],function(idx,elem1){
+								var element=$('<div class="item">');
+								$("#title").html(data)
+								element.append("<input type='checkbox' class='genie_check left'/><div class='li_im left'>"+elem1['name']+"</div><div class='right'><span class='edit_itm right fa fa-pencil' data-elem='"+elem1['name']+"'></span><span class='delete_item right fa fa-trash' data-elem='"+elem1['name']+"'></span>");
+								$("#story").append(element)
+							})
+						}else{
+							alert(JSON.stringify(res['message']))
+						}
 					}
 				})
 		});
@@ -226,6 +233,21 @@
 			$("#edit_itm_model").modal('open')
 			$("#edit_itm_model").attr("data-item",$(this).attr('data-elem'))
 		});
+
+		$('body').on('click', '.delete_item', function() {
+			var obj_id=$("#add_item").attr("data-bucketlist")
+			var data=$(this).attr("data-elem")
+			$.ajax({
+					"type":"GET",
+					"dataType":"json",
+					"url":"/api/delete/"+obj_id+"/"+data,
+					success:function(res){
+						alert(JSON.stringify(res)+" "+obj_id+" "+data)
+					}
+				})
+		});
+
+		//http://127.0.0.1:5000/api/delete/op/hey1
 
 		$("#edit_itm_model").submit(function(event){
 			event.preventDefault()
