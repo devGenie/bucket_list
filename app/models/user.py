@@ -71,7 +71,8 @@ class User(object):
 				return False
 		else:
 			return False
-	 def mark_complete(self,bucketlist,item):
+
+	def mark_complete(self,bucketlist,item):
 	 	"""Mark item as complete"""
 	 	if bucketlist in self.bucketlists:
 	 		bucket=self.bucketlists[bucketlist]
