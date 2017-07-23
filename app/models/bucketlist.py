@@ -35,7 +35,12 @@ class BucketList(object):
 			return False
 
 	def complete_item(self,name):
-		pass
+		if name in self.bucketlist_items:
+			item=self.bucketlist_items[name]
+			item.mark_complete()
+			return {"complete_status":item.complete_status , "date_completed":item.date_completed}
+		else:
+			return False
 
 	def view_item(self,name):
 		if name in self.bucketlist_items:
