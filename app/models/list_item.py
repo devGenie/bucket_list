@@ -10,4 +10,4 @@ class ListItem(object):
 
 	def mark_complete(self):
 		self.complete_status=True
-		self.time_completed=time.strftime("%d/%m/%Y")+" "+time.strftime("%I:%M:%S")
+		self.date_completed=time.strftime("%d/%m/%Y")+" "+time.strftime("%I:%M:%S")

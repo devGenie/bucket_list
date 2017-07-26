@@ -146,10 +146,10 @@ def delete(bucketlist,item_name):
 		return jsonify({"status":"failed","message":"Delete fail"})
 
 @app.route("/api/complete/<string:bucketlist>/<string:item>")
-def complete(bucketlist,item_name):
+def complete(bucketlist,item):
 	global current_user
 	completed=current_user.mark_complete(bucketlist,item)
 	if completed:
 		return jsonify({"status":"success","data":completed})
 	else:
-		return jsonify({"status":"failed","message":"Item completed successfully"})
+		return jsonify({"status":"failed","message":"Item not marked complete"})
